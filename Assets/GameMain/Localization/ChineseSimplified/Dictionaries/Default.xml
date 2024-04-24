@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Dictionaries>
+  <Dictionary Language="ChineseSimplified">
+    <String Key="Title" Value="标题" />
+    <String Key="Title.Color" Value="#FF0000" />
+	<String Key="Content" Value="内容" />
+    <String Key="Content.Color" Value="#FF0000" />
+    <String Key="ButtonColor" Value="#FF0000" />
+  </Dictionary>
+</Dictionaries>
