@@ -18,5 +18,10 @@ namespace GFLearning
         /// 弹出框
         /// </summary>
         DialogForm = 1,
+
+        /// <summary>
+        /// 菜单栏
+        /// </summary>
+        MenuForm = 2,
     }
 }
