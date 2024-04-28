@@ -15,13 +15,18 @@ namespace GFLearning
         Undefined = 0,
 
         /// <summary>
-        /// 弹出框
+        /// 弹框
         /// </summary>
-        DialogForm = 1,
+        DialogForm = 0,
 
         /// <summary>
         /// 菜单栏
         /// </summary>
         MenuForm = 2,
+
+        /// <summary>
+        /// 测试弹框
+        /// </summary>
+        TestForm = 3,
     }
 }

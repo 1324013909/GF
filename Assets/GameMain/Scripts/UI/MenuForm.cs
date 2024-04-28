@@ -13,6 +13,9 @@ namespace GFLearning
         private Language m_SelectedLanguage = Language.Unspecified;
         public void OnEnglishButtonClick() //切换英语
         {
+            //if (GameEntry.Localization.Language.Equals(Language.English))
+            //    return;
+
             m_SelectedLanguage = Language.English;
 
             SubmitChange();
@@ -20,6 +23,9 @@ namespace GFLearning
 
         public void OnSimplifiedChineseButtonClick() //切换简体中文
         {
+            //if (GameEntry.Localization.Language.Equals(Language.English))
+            //    return;
+
             m_SelectedLanguage = Language.ChineseSimplified;
 
             SubmitChange();
@@ -40,10 +46,10 @@ namespace GFLearning
 
         private void SubmitChange()
         {
-            Log.Warning("当前语言为：" + GameEntry.Localization.Language);
             if (m_SelectedLanguage == GameEntry.Localization.Language)
             {
-                Close();
+                Log.Info("当前语言一致");
+                //Close();关闭当前UI
                 return;
             }
 

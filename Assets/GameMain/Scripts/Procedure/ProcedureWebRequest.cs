@@ -9,9 +9,8 @@ using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedure
 
 namespace GFLearning
 {
-    public class ProcedureShowUI :ProcedureBase
+    public class ProcedureWebRequest : GameFramework.Procedure.ProcedureBase
     {
-        private MenuForm m_MenuForm = null;
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
             base.OnInit(procedureOwner);
@@ -21,38 +20,32 @@ namespace GFLearning
         {
             base.OnEnter(procedureOwner);
 
-            GameEntry.Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
-            GameEntry.UI.OpenUIForm(UIFormId.MenuForm, this);//打开MenuForm
+            GameEntry.Event.Subscribe(WebRequestSuccessEventArgs.EventId, OnWebRequestSuccess);
+            GameEntry.Event.Subscribe(WebRequestFailureEventArgs.EventId, OnWebRequestFailure);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
-            base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
+            base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);;
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
             base.OnLeave(procedureOwner, isShutdown);
-
-            GameEntry.Event.Unsubscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
-
-            if (m_MenuForm != null)
-            {
-                m_MenuForm.Close(isShutdown);
-                m_MenuForm = null;
-            }
         }
 
-        private void OnOpenUIFormSuccess(object sender, GameEventArgs e)
+        private void OnWebRequestSuccess(object sender, GameEventArgs e)
         {
-            OpenUIFormSuccessEventArgs ne = (OpenUIFormSuccessEventArgs)e;
-            if (ne.UserData != this)
-            {
-                return;
-            }
+            WebRequestSuccessEventArgs ne = (WebRequestSuccessEventArgs)e;
+            // 获取回应的数据
+            //string responseJson = Utility.Converter.GetString(ne.GetWebResponseBytes());
+            //Log.Debug("responseJson：" + responseJson);
+            Log.Info("请求成功");
+        }
 
-            m_MenuForm = (MenuForm)ne.UIForm.Logic;
+        private void OnWebRequestFailure(object sender, GameEventArgs e)
+        {
+            Log.Warning("请求失败");
         }
     }
 }
-

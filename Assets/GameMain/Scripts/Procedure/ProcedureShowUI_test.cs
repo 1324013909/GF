@@ -37,7 +37,7 @@ namespace GFLearning
                     Log.Error("Can not load font '{0}' from '{1}' with error message '{2}'.", fontName, assetName, errorMessage);
                 }));
 
-            string assetName = AssetUtility.GetUIFormAsset("UI");
+            string assetName = AssetUtility.GetUIFormAsset("MenuForm");
             GameEntry.UI.OpenUIForm(assetName, "Default", new StepParams()
             {
                 Title = "ÌבÊ¾",
