@@ -25,8 +25,13 @@ namespace GFLearning
         MenuForm = 2,
 
         /// <summary>
+        /// 登录面板
+        /// </summary>
+        LoginForm = 3,
+
+        /// <summary>
         /// 测试弹框
         /// </summary>
-        TestForm = 3,
+        TestForm = 4,
     }
 }

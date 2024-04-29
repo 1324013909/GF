@@ -13,9 +13,6 @@ namespace GFLearning
         private Language m_SelectedLanguage = Language.Unspecified;
         public void OnEnglishButtonClick() //切换英语
         {
-            //if (GameEntry.Localization.Language.Equals(Language.English))
-            //    return;
-
             m_SelectedLanguage = Language.English;
 
             SubmitChange();
@@ -23,9 +20,6 @@ namespace GFLearning
 
         public void OnSimplifiedChineseButtonClick() //切换简体中文
         {
-            //if (GameEntry.Localization.Language.Equals(Language.English))
-            //    return;
-
             m_SelectedLanguage = Language.ChineseSimplified;
 
             SubmitChange();
@@ -33,7 +27,7 @@ namespace GFLearning
 
         public void OnQuitButtonClick()  //退出按钮
         {
-
+            UnityGameFramework.Runtime.GameEntry.Shutdown(ShutdownType.Quit);
             Log.Error("退出成功");
             //GameEntry.UI.OpenDialog(new DialogParams()
             //{

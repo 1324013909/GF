@@ -9,5 +9,9 @@
 	  <String Key="语言.英语" Value="English" />
 	  <String Key="语言.简体中文" Value="Simplified Chinese"/>
 	  <String Key="语言.退出按钮" Value="Exit"/>
+	  <String Key="Login.log" Value="Log"/>
+	  <String Key="Login.clear" Value="Clear"/>
+	  <String Key="Login.enterAcc" Value="Please enter account ..."/>
+	  <String Key="Login.enterPwd" Value="Please enter password ..."/>
   </Dictionary>
 </Dictionaries>
