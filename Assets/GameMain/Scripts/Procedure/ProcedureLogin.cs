@@ -5,7 +5,9 @@ using GameFramework.Event;
 using GameFramework.Procedure;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 using System.Collections.Generic;
-
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using UnityEditor.PackageManager.Requests;
 
 namespace GFLearning
 {
@@ -28,8 +30,8 @@ namespace GFLearning
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            if(!passTag)
-                    return;
+            if (!passTag)
+                return;
 
             ChangeState<ProcedureShowUI>(procedureOwner);
         }
@@ -48,14 +50,14 @@ namespace GFLearning
             // 获取回应的数据
             string responseJson = Utility.Converter.GetString(ne.GetWebResponseBytes());
 
-            //string responseJson = JsonConvert.SerializeObject(ne.GetWebResponseBytes());
-            Log.Debug("responseJson：" + responseJson);
-            passTag = true;
+            ApiCall info = JsonConvert.DeserializeObject<ApiCall>(responseJson);
+            if (info.code == 40020)
+                passTag = true;
         }
 
         private void OnWebRequestFailure(object sender, GameEventArgs e)
         {
-            Log.Warning("请求失败");
+            Log.Error("请求失败");
         }
     }
 }
