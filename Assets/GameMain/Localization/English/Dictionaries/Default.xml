@@ -13,5 +13,9 @@
 	  <String Key="Login.clear" Value="Clear"/>
 	  <String Key="Login.enterAcc" Value="Please enter account ..."/>
 	  <String Key="Login.enterPwd" Value="Please enter password ..."/>
+	  <String Key="AskQuitGame.Title" Value="CONFIRM TO QUIT" />
+	  <String Key="AskQuitGame.Message" Value="Are you sure to quit the game?" />
+	  <String Key="Dialog.ConfirmButton" Value="OK" />
+	  <String Key="Dialog.CancelButton" Value="CANCEL" />
   </Dictionary>
 </Dictionaries>

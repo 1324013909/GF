@@ -27,15 +27,13 @@ namespace GFLearning
 
         public void OnQuitButtonClick()  //退出按钮
         {
-            UnityGameFramework.Runtime.GameEntry.Shutdown(ShutdownType.Quit);
-            Log.Error("退出成功");
-            //GameEntry.UI.OpenDialog(new DialogParams()
-            //{
-            //    Mode = 2,
-            //    Title = GameEntry.Localization.GetString("AskQuitGame.Title"),
-            //    Message = GameEntry.Localization.GetString("AskQuitGame.Message"),
-            //    OnClickConfirm = delegate (object userData) { UnityGameFramework.Runtime.GameEntry.Shutdown(ShutdownType.Quit); },
-            //});
+            GameEntry.UI.OpenDialog(new DialogParams()
+            {
+                Mode = 2,
+                Title = GameEntry.Localization.GetString("AskQuitGame.Title"),
+                Message = GameEntry.Localization.GetString("AskQuitGame.Message"),
+                OnClickConfirm = delegate (object userData) { UnityGameFramework.Runtime.GameEntry.Shutdown(ShutdownType.Quit); },
+            });
         }
 
         private void SubmitChange()

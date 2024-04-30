@@ -10,5 +10,9 @@
 		<String Key="Login.clear" Value="清空"/>
 		<String Key="Login.enterAcc" Value="请输入账号"/>
 		<String Key="Login.enterPwd" Value="请输入密码"/>
+		<String Key="AskQuitGame.Title" Value="确认退出" />
+		<String Key="AskQuitGame.Message" Value="是否确认退出？" />
+		<String Key="Dialog.ConfirmButton" Value="确定" />
+		<String Key="Dialog.CancelButton" Value="取消" />
 	</Dictionary>
 </Dictionaries>
