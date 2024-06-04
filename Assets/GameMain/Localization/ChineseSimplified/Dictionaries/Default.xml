@@ -6,6 +6,7 @@
 		<String Key="语言.英语" Value="英语" />
 		<String Key="语言.简体中文" Value="简体中文"/>
 		<String Key="语言.退出按钮" Value="退出"/>
+		<String Key="Language.Tip.RepeatSetting" Value="前后语言设置相同，无需重复设置"/>
 		<String Key="Login.log" Value="登录"/>
 		<String Key="Login.clear" Value="清空"/>
 		<String Key="Login.enterAcc" Value="请输入账号"/>
@@ -14,5 +15,10 @@
 		<String Key="AskQuitGame.Message" Value="是否确认退出？" />
 		<String Key="Dialog.ConfirmButton" Value="确定" />
 		<String Key="Dialog.CancelButton" Value="取消" />
+		<String Key="Error" Value="错误" />
+		<String Key="Tip" Value="提示" />
+		<String Key="Login.Hint.AccOrPwdError" Value="账号或密码错误" />
+		<String Key="Login.Hint.NoInternet" Value="当前网络无连接" />
+		<String Key="Model.CollectApples" Value="收集苹果" />
 	</Dictionary>
 </Dictionaries>

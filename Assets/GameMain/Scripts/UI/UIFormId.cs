@@ -30,8 +30,13 @@ namespace GFLearning
         LoginForm = 3,
 
         /// <summary>
+        /// 临时弹窗
+        /// </summary>
+        DialogFormTemp = 4,
+
+        /// <summary>
         /// 测试弹框
         /// </summary>
-        TestForm = 4,
+        TestForm = 5,
     }
 }

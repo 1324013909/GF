@@ -13,6 +13,9 @@ namespace GFLearning
         public static readonly string[] DataTableNames = new string[]
        {
             "UIForm",
+            "Scene",
+            "Entity",
+            "Apples",
        };
 
         private Dictionary<string, bool> m_LoadedFlag = new Dictionary<string, bool>();//º”‘ÿTag
@@ -51,7 +54,6 @@ namespace GFLearning
             }
 
             ChangeState<ProcedureLogin>(procedureOwner);
-            //ChangeState<ProcedureShowUI>(procedureOwner);
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)

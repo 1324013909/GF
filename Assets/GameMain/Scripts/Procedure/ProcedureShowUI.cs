@@ -12,6 +12,13 @@ namespace GFLearning
     public class ProcedureShowUI :ProcedureBase
     {
         private MenuForm m_MenuForm = null;
+        bool tag;
+
+        public void SceneToCollectApples()
+        {
+            tag = !tag;
+        }
+
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
             base.OnInit(procedureOwner);
@@ -20,6 +27,7 @@ namespace GFLearning
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
+            tag = false;
 
             GameEntry.Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
             GameEntry.UI.OpenUIForm(UIFormId.MenuForm, this);//´ò¿ªMenuForm
@@ -28,6 +36,11 @@ namespace GFLearning
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
+
+            if (tag)
+            {
+                ChangeState<ProcedureChangeScene>(procedureOwner);
+            }
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)

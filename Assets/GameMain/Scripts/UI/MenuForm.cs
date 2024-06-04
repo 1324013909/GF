@@ -8,7 +8,7 @@ namespace GFLearning
 {
     public class MenuForm : UGuiForm
     {
-        //private ProcedureMenu m_ProcedureMenu = null;
+        private ProcedureShowUI m_ProcedureShowUI = null;
 
         private Language m_SelectedLanguage = Language.Unspecified;
         public void OnEnglishButtonClick() //切换英语
@@ -36,11 +36,21 @@ namespace GFLearning
             });
         }
 
+        public void OnCollectApplesSelected()
+        {
+            m_ProcedureShowUI.SceneToCollectApples();
+        }
+
         private void SubmitChange()
         {
             if (m_SelectedLanguage == GameEntry.Localization.Language)
             {
-                Log.Info("当前语言一致");
+                GameEntry.UI.OpenUIForm(UIFormId.DialogFormTemp, new HintParams()
+                {
+                    Title = GameEntry.Localization.GetString("Tip"),
+                    Message = GameEntry.Localization.GetString("Language.Tip.RepeatSetting"),
+                    TitleBackgroundColor = GameEntry.Config.GetString("TipColor")
+                });
                 //Close();关闭当前UI
                 return;
             }
@@ -56,11 +66,20 @@ namespace GFLearning
         {
             base.OnOpen(userData);
 
+            m_ProcedureShowUI = (ProcedureShowUI)userData;
+            if (m_ProcedureShowUI == null)
+            {
+                Log.Warning("ProcedureShowUI is invalid when open MenuForm.");
+                return;
+            }
+
             m_SelectedLanguage = GameEntry.Localization.Language;
         }
 
         protected override void OnClose(bool isShutdown, object userData)
         {
+            m_ProcedureShowUI = null;
+
             m_SelectedLanguage = GameEntry.Localization.Language;
 
             base.OnClose(isShutdown, userData);

@@ -2,14 +2,12 @@
 <Dictionaries>
   <Dictionary Language="English">
 	  <String Key="Title" Value="Title" />
-	  <String Key="Title.Color" Value="#0000FF" />
 	  <String Key="Content" Value="Content" />
-	  <String Key="Content.Color" Value="#0000FF" />
-	  <String Key="ButtonColor" Value="#F0000F" />
 	  <String Key="语言.英语" Value="English" />
 	  <String Key="语言.简体中文" Value="Simplified Chinese"/>
 	  <String Key="语言.退出按钮" Value="Exit"/>
-	  <String Key="Login.log" Value="Log"/>
+	  <String Key="Language.Tip.RepeatSetting" Value="The language Settings before and after are the same, and do not need to be repeated."/>
+	  <String Key="Login.log" Value="Log in"/>
 	  <String Key="Login.clear" Value="Clear"/>
 	  <String Key="Login.enterAcc" Value="Please enter account ..."/>
 	  <String Key="Login.enterPwd" Value="Please enter password ..."/>
@@ -17,5 +15,10 @@
 	  <String Key="AskQuitGame.Message" Value="Are you sure to quit the game?" />
 	  <String Key="Dialog.ConfirmButton" Value="OK" />
 	  <String Key="Dialog.CancelButton" Value="CANCEL" />
+	  <String Key="Error" Value="Error" />
+	  <String Key="Tip" Value="Tip" />
+	  <String Key="Login.Hint.AccOrPwdError" Value="The account or password is incorrect." />
+	  <String Key="Login.Hint.NoInternet" Value="The network is not connected." />
+	  <String Key="Model.CollectApples" Value="Collect Apples" />
   </Dictionary>
 </Dictionaries>
