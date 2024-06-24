@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using UnityEditor.PackageManager.Requests;
+using GFLearning.CollectApples;
 
 namespace GFLearning
 {
@@ -19,7 +20,7 @@ namespace GFLearning
         {
             base.OnEnter(procedureOwner);
 
-            m_CurrentBusiness = new CollectApples();
+            m_CurrentBusiness = new CollectApplesBusiness();
             m_CurrentBusiness.Initialize();
         }
 

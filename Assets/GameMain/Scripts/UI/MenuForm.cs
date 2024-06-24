@@ -10,6 +10,7 @@ namespace GFLearning
     {
         private ProcedureShowUI m_ProcedureShowUI = null;
 
+        [SerializeField]
         private Language m_SelectedLanguage = Language.Unspecified;
         public void OnEnglishButtonClick() //«–ªª”¢”Ô
         {
@@ -45,7 +46,7 @@ namespace GFLearning
         {
             if (m_SelectedLanguage == GameEntry.Localization.Language)
             {
-                GameEntry.UI.OpenUIForm(UIFormId.DialogFormTemp, new HintParams()
+                GameEntry.UI.OpenUIForm(UIFormId.Dialog_TempForm, new HintParams()
                 {
                     Title = GameEntry.Localization.GetString("Tip"),
                     Message = GameEntry.Localization.GetString("Language.Tip.RepeatSetting"),

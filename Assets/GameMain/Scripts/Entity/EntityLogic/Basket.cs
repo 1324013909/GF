@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace GFLearning
+namespace GFLearning.CollectApples
 {
     [DisallowMultipleComponent]
     /// <summary>
@@ -13,9 +13,6 @@ namespace GFLearning
     {
         [SerializeField]
         private BasketData m_BasketData = null;
-
-        public Rect m_PlayerMoveBoundary = default(Rect);
-
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
@@ -34,11 +31,6 @@ namespace GFLearning
 
             float screenWidth = Screen.width;
             float screenHeight = Screen.height;
-
-            // 根据屏幕的宽度和高度设置矩形的大小
-            // 这里可以根据需要设置矩形的位置和大小
-            m_PlayerMoveBoundary = new Rect(-screenWidth / 2, -screenHeight / 2, screenWidth, screenHeight);
-            Log.Error("zuixiao:" + m_PlayerMoveBoundary.xMin + "zuida"+  m_PlayerMoveBoundary.xMax);
 
             Name = "MyBasket";
         }
@@ -61,10 +53,6 @@ namespace GFLearning
             float moveY = Input.GetAxis("Vertical");
             Vector3 move = new Vector3(moveX, moveY, 0);
             Vector3 newPosition = transform.position + move * 5 * Time.deltaTime;
-
-            // 限制物体移动在边界内
-            newPosition.x = Mathf.Clamp(newPosition.x, m_PlayerMoveBoundary.xMin, m_PlayerMoveBoundary.xMax);
-            newPosition.y = Mathf.Clamp(newPosition.y, m_PlayerMoveBoundary.yMin, m_PlayerMoveBoundary.yMax);
 
             transform.position = newPosition;
         }

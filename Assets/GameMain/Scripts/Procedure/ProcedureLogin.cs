@@ -64,7 +64,7 @@ namespace GFLearning
             if (info.code == 40020)
                 passTag = true;
             else
-                GameEntry.UI.OpenUIForm(UIFormId.DialogFormTemp, new HintParams()
+                GameEntry.UI.OpenUIForm(UIFormId.Dialog_TempForm, new HintParams()
                 {
                     Title = GameEntry.Localization.GetString("Error"),
                     Message = GameEntry.Localization.GetString("Login.Hint.AccOrPwdError"),
@@ -75,7 +75,7 @@ namespace GFLearning
         private void OnWebRequestFailure(object sender, GameEventArgs e)
         {
             Log.Error("«Î«Û ß∞‹");
-            GameEntry.UI.OpenUIForm(UIFormId.DialogFormTemp, new HintParams()
+            GameEntry.UI.OpenUIForm(UIFormId.Dialog_TempForm, new HintParams()
             {
                 Title = GameEntry.Localization.GetString("Error"),
                 Message = GameEntry.Localization.GetString("Login.Hint.NoInternet"),

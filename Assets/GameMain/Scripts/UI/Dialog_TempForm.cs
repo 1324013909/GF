@@ -9,7 +9,7 @@ using System;
 
 namespace GFLearning
 {
-    public class DialogFormTemp : UGuiForm
+    public class Dialog_TempForm : UGuiForm
     {
         [SerializeField]
         private Text m_TitleText = null;

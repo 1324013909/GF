@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GFLearning
+namespace GFLearning.CollectApples
 {
     /// <summary>
     /// CollectApples.BasketData

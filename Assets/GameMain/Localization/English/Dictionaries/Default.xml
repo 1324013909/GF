@@ -20,5 +20,8 @@
 	  <String Key="Login.Hint.AccOrPwdError" Value="The account or password is incorrect." />
 	  <String Key="Login.Hint.NoInternet" Value="The network is not connected." />
 	  <String Key="Model.CollectApples" Value="Collect Apples" />
+	  <String Key="CollectApples.ScorePanel.HP" Value="HP" />
+	  <String Key="CollectApples.ScorePanel.CurrentScore" Value="CurrentScore" />
+	  <String Key="CollectApples.ScorePanel.HistoricalScore" Value="HistoricalScore" />
   </Dictionary>
 </Dictionaries>

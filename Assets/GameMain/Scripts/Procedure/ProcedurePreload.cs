@@ -53,7 +53,8 @@ namespace GFLearning
                 }
             }
 
-            ChangeState<ProcedureLogin>(procedureOwner);
+            //ChangeState<ProcedureLogin>(procedureOwner);
+            ChangeState<ProcedureShowUI>(procedureOwner);
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)

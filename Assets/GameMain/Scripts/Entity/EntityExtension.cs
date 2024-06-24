@@ -8,6 +8,7 @@
 using GameFramework.DataTable;
 using System;
 using UnityGameFramework.Runtime;
+using GFLearning.CollectApples;
 
 namespace GFLearning
 {
@@ -69,10 +70,20 @@ namespace GFLearning
             return --s_SerialId;
         }
 
-
+        /// <summary>
+        /// CollectApples
+        /// </summary>
         public static void ShowCollectApples_Basket(this EntityComponent entityComponent, BasketData data)
         {
-            entityComponent.ShowEntity(typeof(Basket), "CollectApples.Basket", Constant.AssetPriority.MyAircraftAsset, data);
+            entityComponent.ShowEntity(typeof(Basket), "CollectApples.Basket", Constant.AssetPriority.CollectApples_DefaultAsset, data);
+        }
+        public static void ShowCollectApples_AppleTree(this EntityComponent entityComponent, AppleTreeData data)
+        {
+            entityComponent.ShowEntity(typeof(AppleTree), "CollectApples.AppleTree", Constant.AssetPriority.CollectApples_DefaultAsset, data);
+        }
+        public static void ShowCollectApples_Apple(this EntityComponent entityComponent, AppleData data)
+        {
+            entityComponent.ShowEntity(typeof(Apple), "CollectApples.Apple", Constant.AssetPriority.CollectApples_DefaultAsset, data);
         }
     }
 }

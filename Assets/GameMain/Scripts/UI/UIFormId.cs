@@ -32,11 +32,16 @@ namespace GFLearning
         /// <summary>
         /// 临时弹窗
         /// </summary>
-        DialogFormTemp = 4,
+        Dialog_TempForm = 4,
+
+        /// <summary>
+        /// CollectApples.ScorePanel
+        /// </summary>
+        CollectApples_ScorePanelForm = 5,
 
         /// <summary>
         /// 测试弹框
         /// </summary>
-        TestForm = 5,
+        TestForm = 99,
     }
 }

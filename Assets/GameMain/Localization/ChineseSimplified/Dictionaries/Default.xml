@@ -20,5 +20,8 @@
 		<String Key="Login.Hint.AccOrPwdError" Value="账号或密码错误" />
 		<String Key="Login.Hint.NoInternet" Value="当前网络无连接" />
 		<String Key="Model.CollectApples" Value="收集苹果" />
+		<String Key="CollectApples.ScorePanel.HP" Value="血量" />
+		<String Key="CollectApples.ScorePanel.CurrentScore" Value="当前得分" />
+		<String Key="CollectApples.ScorePanel.HistoricalScore" Value="历史最高分" />
 	</Dictionary>
 </Dictionaries>

@@ -32,6 +32,9 @@ namespace GFLearning
             public const int BulletAsset = 80;
             public const int AsteroiAsset = 80;
             public const int EffectAsset = 80;
+
+            //CollectApples.Asset
+            public const int CollectApples_DefaultAsset = 90;
         }
     }
 }
