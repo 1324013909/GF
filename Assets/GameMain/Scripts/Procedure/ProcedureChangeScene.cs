@@ -1,3 +1,4 @@
+using GameFramework.DataTable;
 using GameFramework.Event;
 using GameFramework.Fsm;
 using GameFramework.Localization;
@@ -40,13 +41,30 @@ namespace GFLearning
             for (int i = 0; i < loadedSceneAssetNames.Length; i++)
             {
                 GameEntry.Scene.UnloadScene(loadedSceneAssetNames[i]);
-                Log.Error("shanchu" + loadedSceneAssetNames[i]);
+                Log.Error("删除场景" + loadedSceneAssetNames[i]);
             }
 
             // 还原游戏速度
             GameEntry.Base.ResetNormalGameSpeed();
 
-            GameEntry.Scene.LoadScene(AssetUtility.GetSceneAsset("CollectApples"), this);
+
+            //NewScene Load
+            int sceneId = procedureOwner.GetData<VarInt32>("NextSceneId");
+            IDataTable<DRScene> dtScene = GameEntry.DataTable.GetDataTable<DRScene>();
+            DRScene drScene = dtScene.GetDataRow(sceneId);
+            if (drScene == null)
+            {
+                Log.Warning("Can not load scene '{0}' from data table.", sceneId.ToString());
+                return;
+            }
+
+            GameEntry.Scene.LoadScene(AssetUtility.GetSceneAsset(drScene.AssetName), Constant.AssetPriority.SceneAsset, this);
+            //GameEntry.Scene.LoadScene(AssetUtility.GetSceneAsset("CollectApples"), this);
+        }
+
+        private void LoadScene(string SceneName)
+        {
+            GameEntry.Scene.LoadScene(AssetUtility.GetSceneAsset(SceneName), this);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
@@ -55,8 +73,8 @@ namespace GFLearning
 
             if (m_IsChangeSceneComplete)
             {
-                //加载场景
-                //GameEntry.Scene.LoadScene(AssetUtility.GetSceneAsset("CollectApples"), this);
+                //准备切换场景
+                procedureOwner.SetData<VarInt32>("NextSceneId", GameEntry.Config.GetInt("Scene.Main"));
                 ChangeState<ProcedureMain>(procedureOwner);
             }
 

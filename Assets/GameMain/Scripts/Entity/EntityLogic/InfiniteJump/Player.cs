@@ -10,7 +10,7 @@ namespace GFLearning.InfiniteJump
     /// <summary>
     /// InfiniteJump.Player
     /// </summary>
-    public class Apple : Entity
+    public class Player : Entity
     {
         [SerializeField]
         private PlayerData m_PlayerData = null;
@@ -117,7 +117,7 @@ namespace GFLearning.InfiniteJump
 
         private void PlayerJumpAction()
         {
-            m_PlayerData.Rb.velocity = new Vector2(m_PlayerData.Rb.velocity.x,)
+           // m_PlayerData.Rb.velocity = new Vector2(m_PlayerData.Rb.velocity.x,)
         }
     }
 }

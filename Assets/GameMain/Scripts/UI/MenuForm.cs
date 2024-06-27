@@ -37,9 +37,9 @@ namespace GFLearning
             });
         }
 
-        public void OnCollectApplesSelected()
+        public void OnCollectScene()
         {
-            m_ProcedureShowUI.SceneToCollectApples();
+            m_ProcedureShowUI.ChangeToScene();
         }
 
         private void SubmitChange()

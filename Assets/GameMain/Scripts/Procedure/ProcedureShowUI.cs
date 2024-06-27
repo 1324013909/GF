@@ -14,7 +14,7 @@ namespace GFLearning
         private MenuForm m_MenuForm = null;
         bool tag;
 
-        public void SceneToCollectApples()
+        public void ChangeToScene()
         {
             tag = !tag;
         }
@@ -39,6 +39,7 @@ namespace GFLearning
 
             if (tag)
             {
+                procedureOwner.SetData<VarInt32>("NextSceneId", GameEntry.Config.GetInt("Scene.Main"));
                 ChangeState<ProcedureChangeScene>(procedureOwner);
             }
         }
