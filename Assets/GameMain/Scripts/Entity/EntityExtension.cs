@@ -9,6 +9,7 @@ using GameFramework.DataTable;
 using System;
 using UnityGameFramework.Runtime;
 using GFLearning.CollectApples;
+using GFLearning.InfiniteJump;
 
 namespace GFLearning
 {
@@ -84,6 +85,14 @@ namespace GFLearning
         public static void ShowCollectApples_Apple(this EntityComponent entityComponent, AppleData data)
         {
             entityComponent.ShowEntity(typeof(Apple), "CollectApples.Apple", Constant.AssetPriority.CollectApples_DefaultAsset, data);
+        }
+
+        /// <summary>
+        /// InfinitJump
+        /// </summary>
+        public static void ShowInfiniteJump_Player(this EntityComponent entityComponent, PlayerData data)
+        {
+            entityComponent.ShowEntity(typeof(Player), "InfiniteJump.Player", Constant.AssetPriority.InfiniteJump_DefaultAsset, data);
         }
     }
 }

@@ -9,14 +9,16 @@ using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedure
 
 namespace GFLearning
 {
-    public class ProcedureShowUI :ProcedureBase
+    public class ProcedureShowUI : ProcedureBase
     {
         private MenuForm m_MenuForm = null;
         bool tag;
+        int m_nextSceneID;
 
-        public void ChangeToScene()
+        public void ChangeToScene(int nextSceneID)
         {
             tag = !tag;
+            m_nextSceneID = nextSceneID;
         }
 
         protected override void OnInit(ProcedureOwner procedureOwner)
@@ -28,6 +30,7 @@ namespace GFLearning
         {
             base.OnEnter(procedureOwner);
             tag = false;
+            m_nextSceneID = 0;
 
             GameEntry.Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
             GameEntry.UI.OpenUIForm(UIFormId.MenuForm, this);//打开MenuForm
@@ -39,9 +42,11 @@ namespace GFLearning
 
             if (tag)
             {
-                procedureOwner.SetData<VarInt32>("NextSceneId", GameEntry.Config.GetInt("Scene.Main"));
+                //procedureOwner.SetData<VarInt32>("NextSceneId", GameEntry.Config.GetInt("Scene.Main")); 从Config读取
+                procedureOwner.SetData<VarInt32>("NextSceneId", m_nextSceneID);
                 ChangeState<ProcedureChangeScene>(procedureOwner);
             }
+
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)

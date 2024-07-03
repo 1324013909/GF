@@ -35,6 +35,9 @@ namespace GFLearning
 
             //CollectApples.Asset
             public const int CollectApples_DefaultAsset = 90;
+
+            //InfiniteJump.Asset
+            public const int InfiniteJump_DefaultAsset = 90;
         }
     }
 }

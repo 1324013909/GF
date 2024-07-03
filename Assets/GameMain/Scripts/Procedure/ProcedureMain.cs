@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using UnityEditor.PackageManager.Requests;
 using GFLearning.CollectApples;
+using GFLearning.InfiniteJump;
 
 namespace GFLearning
 {
@@ -20,7 +21,8 @@ namespace GFLearning
         {
             base.OnEnter(procedureOwner);
 
-            m_CurrentBusiness = new CollectApplesBusiness();
+            //m_CurrentBusiness = new InfiniteJumpBusiness();
+            BusinessSelected(procedureOwner.GetData<VarInt32>("NextSceneId"));
             m_CurrentBusiness.Initialize();
         }
 
@@ -39,7 +41,21 @@ namespace GFLearning
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
         }
 
-      
+        private void BusinessSelected(int businessID)
+        {
+            switch (businessID)
+            {
+                case 2: 
+                    m_CurrentBusiness = new CollectApplesBusiness();
+                    break;
+                case 3: 
+                    m_CurrentBusiness = new InfiniteJumpBusiness(); 
+                    break;
+                default:
+                    Log.Error("相关业务调用失败，请检查");
+                    break;
+            }
+        }
 
     }
 }

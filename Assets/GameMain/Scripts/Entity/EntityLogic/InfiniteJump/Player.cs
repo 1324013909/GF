@@ -15,6 +15,8 @@ namespace GFLearning.InfiniteJump
         [SerializeField]
         private PlayerData m_PlayerData = null;
 
+        private Editor_Player m_EditorData = null;
+
         [SerializeField]
         private LayerMask m_LayerMask;
         protected override void OnInit(object userData)
@@ -52,25 +54,26 @@ namespace GFLearning.InfiniteJump
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
 
-            // isOnGroundCheck();
+            //isOnGroundCheck();
 
             IsPlayerMove();
             IsPlayerJump();
             //“∆∂Øº∆À„
-            m_PlayerData.Speed = new Vector2(m_PlayerData.MoveDirection * m_PlayerData.MoveSpeed * Time.deltaTime, m_PlayerData.JumpDirectionV * m_PlayerData.MoveSpeed * Time.deltaTime);
+            m_PlayerData.Speed = new Vector2(m_PlayerData.MoveDirection_h * m_PlayerData.MoveSpeed * Time.deltaTime, m_PlayerData.JumpDirection_v * m_PlayerData.MoveSpeed * Time.deltaTime);
             GetComponent<Transform>().Translate(m_PlayerData.Speed);
         }
 
         private void PlayerDataInit()
         {
+            m_EditorData = this.gameObject.GetComponent<Editor_Player>();
             m_PlayerData.Anim = this.GetComponent<Animator>();
             m_PlayerData.Sprd = this.GetComponent<SpriteRenderer>();
             m_PlayerData.Rb = this.GetComponent<Rigidbody2D>();
             m_PlayerData.Coll = this.GetComponent<Collider2D>();
-            m_PlayerData.MoveSpeed = this.GetComponent<float>();
-            m_PlayerData.JumpForce = this.GetComponent<float>();
+            m_PlayerData.MoveSpeed = m_EditorData.m_MoveSpeed;
+            m_PlayerData.JumpForce = m_EditorData.m_JumpForce;
 
-            m_PlayerData.MoveDirection = 0;
+            m_PlayerData.MoveDirection_h = 0;
         }
 
         private void IsPlayerMove()
@@ -78,13 +81,13 @@ namespace GFLearning.InfiniteJump
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 m_PlayerData.Anim.SetBool("isRun", true);
-                m_PlayerData.MoveDirection = -1;
+                m_PlayerData.MoveDirection_h = -1;
                 m_PlayerData.Sprd.flipX = true;//…Ë÷√æµœÒ 
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
                 m_PlayerData.Anim.SetBool("isRun", true);
-                m_PlayerData.MoveDirection = 1;
+                m_PlayerData.MoveDirection_h = 1;
                 m_PlayerData.Sprd.flipX = false;
             }
             else if (Input.GetKeyUp(KeyCode.LeftArrow))
@@ -97,13 +100,13 @@ namespace GFLearning.InfiniteJump
             }
             else
             {
-                m_PlayerData.MoveDirection = 0;
+                m_PlayerData.MoveDirection_h = 0;
             }
         }
 
         private void IsPlayerJump()
         {
-            if (Input.GetKey(KeyCode.Space) && m_PlayerData.IsOnGround)
+            if (Input.GetKey(KeyCode.Space) /*&& m_PlayerData.IsOnGround*/)
             {
                 m_PlayerData.Anim.SetBool("isJump", true);
 
@@ -117,7 +120,18 @@ namespace GFLearning.InfiniteJump
 
         private void PlayerJumpAction()
         {
-           // m_PlayerData.Rb.velocity = new Vector2(m_PlayerData.Rb.velocity.x,)
+            m_PlayerData.Rb.velocity = new Vector2(m_PlayerData.Rb.velocity.x, m_PlayerData.JumpForce);
+        }
+        private void isOnGroundCheck()
+        {
+            if (m_PlayerData.Coll.IsTouchingLayers(m_LayerMask))
+            {
+                m_PlayerData.IsOnGround = true;
+            }
+            else
+            {
+                m_PlayerData.IsOnGround = false;
+            }
         }
     }
 }

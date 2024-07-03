@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameMain/Scenes/CollectApples.unity
     guid: a11f66c20f25ce7409427d36a1074219
+  - enabled: 1
+    path: Assets/GameMain/Scenes/InfiniteJump.unity
+    guid: 2a0e07054b9fa9a4ebf8afcf8412de74
   m_configObjects: {}

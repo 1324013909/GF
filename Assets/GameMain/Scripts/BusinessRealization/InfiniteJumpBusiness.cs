@@ -15,23 +15,15 @@ namespace GFLearning.InfiniteJump
             GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
             GameEntry.Event.Subscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
 
-            //GameEntry.Entity.ShowCollectApples_Basket(new BasketData(GameEntry.Entity.GenerateSerialId(), 1)
-            //{
-            //    Position = new Vector3(0, -4.5f, 2f),
-            //    Rotation = Quaternion.Euler(-90, 0, 0),
-            //    Scale = new Vector3(4.5f, 4.5f, 4.5f),
-            //});
-
-            //GameEntry.Entity.ShowCollectApples_AppleTree(new AppleTreeData(GameEntry.Entity.GenerateSerialId(), 2)
-            //{
-            //    Position = new Vector3(0, 3.1f, 2f),
-            //    Rotation = Quaternion.Euler(-90, 0, 0),
-            //    Scale = new Vector3(0.65f, 0.65f, 0.65f),
-            //    Speed = 1,
-            //});
+            GameEntry.Entity.ShowInfiniteJump_Player(new PlayerData(GameEntry.Entity.GenerateSerialId(), 4)
+            {
+                Position = new Vector3(-1.7f, 5f, 1f),
+                //Rotation = Quaternion.Euler(-90, 0, 0),
+                //Scale = new Vector3(4.5f, 4.5f, 4.5f),
+            });
 
             //GameEntry.UI.OpenUIForm(UIFormId.Dialog_TempForm, this);
-           // GameEntry.UI.OpenUIForm(UIFormId.CollectApples_ScorePanelForm, this);//打开LoginForm
+            // GameEntry.UI.OpenUIForm(UIFormId.CollectApples_ScorePanelForm, this);//打开LoginForm
 
             isBusinessEnd = false;
             m_MyPlayer = null;

@@ -37,9 +37,9 @@ namespace GFLearning
             });
         }
 
-        public void OnCollectScene()
+        public void OnCollectScene(int nextID)
         {
-            m_ProcedureShowUI.ChangeToScene();
+            m_ProcedureShowUI.ChangeToScene(nextID);
         }
 
         private void SubmitChange()

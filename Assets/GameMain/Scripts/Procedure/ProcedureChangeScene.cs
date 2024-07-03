@@ -73,8 +73,6 @@ namespace GFLearning
 
             if (m_IsChangeSceneComplete)
             {
-                //×¼±¸ÇÐ»»³¡¾°
-                procedureOwner.SetData<VarInt32>("NextSceneId", GameEntry.Config.GetInt("Scene.Main"));
                 ChangeState<ProcedureMain>(procedureOwner);
             }
 

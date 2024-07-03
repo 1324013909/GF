@@ -18,32 +18,30 @@ namespace GFLearning.InfiniteJump
 
         private Collider2D m_coll;
 
-        private float m_MoveSpeed;
-        private float m_jumpForce;
+        private float m_MoveSpeed;//移动速度
+        private float m_JumpForce;//跳跃力度
 
         private bool m_isOnGround;
 
-        private int m_MoveDirection; //水平移动方向(向右:1  向左:-1)
-        private int m_JumpDirectionV; //(向上: 1  向下: -1)
+        private float m_MoveDirection_h; //水平移动方向(向右:1  向左:-1)
+        private float m_JumpDirection_v; //垂直移动方向(向上: 1  向下: -1)
 
-        private Vector2 m_Speed;//每针速度
+        private Vector2 m_Speed;//每帧移动
 
         public PlayerData(int entityId, int typeId) : base(entityId, typeId)
         {
+
         }
-
-
 
         public Animator Anim { get => m_Anim; set => m_Anim = value; }
         public SpriteRenderer Sprd { get => m_Sprd; set => m_Sprd = value; }
         public Rigidbody2D Rb { get => m_Rb; set => m_Rb = value; }
         public Collider2D Coll { get => m_coll; set => m_coll = value; }
         public float MoveSpeed { get => m_MoveSpeed; set => m_MoveSpeed = value; }
-        public float JumpForce { get => m_jumpForce; set => m_jumpForce = value; }
+        public float JumpForce { get => m_JumpForce; set => m_JumpForce = value; }
         public bool IsOnGround { get => m_isOnGround; set => m_isOnGround = value; }
-        public int MoveDirection { get => m_MoveDirection; set => m_MoveDirection = value; }
-        public int JumpDirectionV { get => m_JumpDirectionV; set => m_JumpDirectionV = value; }
+        public float MoveDirection_h { get => m_MoveDirection_h; set => m_MoveDirection_h = value; }
+        public float JumpDirection_v { get => m_JumpDirection_v; set => m_JumpDirection_v = value; }
         public Vector2 Speed { get => m_Speed; set => m_Speed = value; }
-       
     }
 }
